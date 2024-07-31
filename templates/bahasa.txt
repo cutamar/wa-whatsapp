@@ -1,0 +1,6 @@
+Hello {name},
+We are excited to invite you to our wedding bahasa.
+Please join us using this link: {url}
+
+Best regards,
+Event Team
