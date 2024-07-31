@@ -1,6 +1,10 @@
-Hello {name},
-We are excited to invite you to our wedding.
-Please join us using this link: {url}
+With heartfelt joy and deep respect, we are thrilled to invite you to celebrate our wedding, as we unite in love and commitment.
 
-Best regards,
-Event Team
+Please find all the details regarding the event, including the location and time, in the link provided at the bottom of this invitation.
+
+We would be honored to have your presence and blessings as we embark on this beautiful journey together.
+
+Lots of Love,
+Amar & Rachmalia (Okkie)
+
+Link: {url}

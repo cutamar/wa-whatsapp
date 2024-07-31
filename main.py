@@ -16,10 +16,10 @@ def read_template(file_path):
 
 # URLs for different events
 event_urls = {
-    'dinner': 'https://amarwedrachmalia.viding.co/?event=The+Reception+Soiree',
-    'lunch': 'https://amarwedrachmalia.viding.co/?event=Wedding+Lunch+Reception',
-    'ceremony': 'https://amarwedrachmalia.viding.co/?event=Wedding+Ceremony+%26+Lunch+Reception',
-    'general': 'https://amarwedrachmalia.viding.co/'
+    'dinner': 'https://amarwedrachmalia.viding.co?event=The+Reception+Soiree&rsvp=1&',
+    'lunch': 'https://amarwedrachmalia.viding.co?event=Wedding+Lunch+Reception&rsvp=1&',
+    'ceremony': 'https://amarwedrachmalia.viding.co?event=Wedding+Ceremony+%26+Lunch+Reception&rsvp=1&',
+    'general': 'https://amarwedrachmalia.viding.co?'
 }
 
 if __name__ == "__main__":
@@ -37,6 +37,7 @@ if __name__ == "__main__":
     for index, row in data.iterrows():
         try:
             name = row['name'].title()
+            name_original = row['name']
         except:
             continue
         number = row['wa']
@@ -57,10 +58,11 @@ if __name__ == "__main__":
             number = '+' + number
         
         # Prepare the message
+        url = event_urls[event] + f'name={name_original.replace(" ", "+")}'
         try:
-            message = read_template(f'templates/{language}.txt').format(name=name, url=event_urls[event])
+            message = read_template(f'templates/{language}.txt').format(name=name, url=url)
         except:
-            message = read_template('templates/default.txt').format(name=name, url=event_urls[event])
+            message = read_template('templates/default.txt').format(name=name, url=url)
         
         # Check if the message was already sent or had errors
         if number in sent_data['sent']:
